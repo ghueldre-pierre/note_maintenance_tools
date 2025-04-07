@@ -1,0 +1,11 @@
+# Verify that the ".nmt" folder is created once "init" is called
+exec nmt init
+exists .nmt
+stdout 'Note Maintenance Tools has been successfully initialized.'
+! stderr .
+
+# Verify that no error is thrown if "init" is called on an already initialized notes repository.
+exists .nmt
+exec nmt init
+stdout 'Note Maintenance Tools has already been initialized.'
+! stderr .
